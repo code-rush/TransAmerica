@@ -7,28 +7,28 @@ class User(ndb.Model):
    email = ndb.StringProperty(required=True)
    wins = ndb.IntegerProperty(default=0)
    games_played = ndb.IntegerProperty(default=0)
-
+   
 
 class Game(ndb.Model):
    """Game Object"""
-   player_1 = ndb.KeyProperty(required=True, kind='User')
-   player_2 = ndb.KeyProperty()
-   player_3 = ndb.KeyProperty()
-   player_4 = ndb.KeyProperty()
-   player_5 = ndb.KeyProperty()
-   player_6 = ndb.KeyProperty()
-   player_1_points = ndb.PicklePropert()
-   player_2_points = ndb.PicklePropert()
-   player_3_points = ndb.PicklePropert()
-   player_4_points = ndb.PicklePropert()
-   player_5_points = ndb.PicklePropert()
-   player_6_points = ndb.PicklePropert()
-   player_1_collection_points = ndb.PicklePropert()
-   player_2_collection_points = ndb.PicklePropert()
-   player_3_collection_points = ndb.PicklePropert()
-   player_4_collection_points = ndb.PicklePropert()
-   player_5_collection_points = ndb.PicklePropert()
-   player_6_collection_points = ndb.PicklePropert()
+   player1 = ndb.KeyProperty(required=True, kind='User')
+   player2 = ndb.KeyProperty()
+   player3 = ndb.KeyProperty()
+   player4 = ndb.KeyProperty()
+   player5 = ndb.KeyProperty()
+   player6 = ndb.KeyProperty()
+   player1VictoryPoints = ndb.PicklePropert()
+   player2VictoryPoints = ndb.PicklePropert()
+   player3VictoryPoints = ndb.PicklePropert()
+   player4VictoryPoints = ndb.PicklePropert()
+   player5VictoryPoints = ndb.PicklePropert()
+   player6VictoryPoints = ndb.PicklePropert()
+   player1CollectionPoints = ndb.PicklePropert()
+   player2CollectionPoints = ndb.PicklePropert()
+   player3CollectionPoints = ndb.PicklePropert()
+   player4CollectionPoints = ndb.PicklePropert()
+   player5CollectionPoints = ndb.PicklePropert()
+   player6CollectionPoints = ndb.PicklePropert()
    game_over = ndb.BooleanProperty(required=True, default=False)
    winner = ndb.KeyProperty(required=True, kind='User')
 
@@ -45,22 +45,22 @@ class GameForm(messages.Message):
    """GameForm for outbound game state information"""
    urlsafe_key = messages.StringField(1, required=True)
    next_move = messages.StringField(2, required=True)
-   player_1 = messages.StringField(3, required=True)
-   player_2 = messages.StringField(4)
-   player_3 = messages.StringField(5)
-   player_4 = messages.StringField(6)
-   player_5 = messages.StringField(7)
-   player_6 = messages.StringField(8)
+   player1 = messages.StringField(3, required=True)
+   player2 = messages.StringField(4)
+   player3 = messages.StringField(5)
+   player4 = messages.StringField(6)
+   player5 = messages.StringField(7)
+   player6 = messages.StringField(8)
 
 
 class NewGameForm(messages.Message):
    """Used to create a new game"""
-   player_1 = messages.StringField(1, required=True)
-   player_2 = messages.StringField(2)
-   player_3 = messages.StringField(3)
-   player_4 = messages.StringField(4)
-   player_5 = messages.StringField(5)
-   player_6 = messages.StringField(6)
+   player1 = messages.StringField(1, required=True)
+   player2 = messages.StringField(2)
+   player3 = messages.StringField(3)
+   player4 = messages.StringField(4)
+   player5 = messages.StringField(5)
+   player6 = messages.StringField(6)
 
 
 class StringMessage(messages.Message):
